@@ -1,0 +1,57 @@
+# 6-8 $Lookup Stage, Embedding Vs Referencing.Mp4
+
+# referencing VS embedding
+
+```
+db.orders.aggregate([
+    {
+        $lookup: {
+            from: "firstTest",
+            localField: "userId",
+            foreignField: "_id",
+            as: "mezba>"
+        }
+    }
+])
+```
+
+# 6-9 What Is Indexing, COLLSCAN Vs IXSCAN
+
+```
+db.firstTest.find({"_id" : ObjectId("6406ad63fc13ae5a40000065")}).explain()
+```
+
+```
+db.firstTest.find({"_id" : ObjectId("6406ad63fc13ae5a40000065")}).explain("executionStats")
+```
+
+```
+db.firstTest.find({	"email" : "mdangl1@odnoklassniki.ru"}).explain("executionStats")
+```
+
+// index scan & collscan
+
+```
+db.getCollection("massive-data").createIndex(
+    { email: 1 },
+)
+```
+
+- more indexing, more memory use -- since a data structure is created for indexing in memory
+
+# 6-10 Explore Compound Index And Text Index
+
+```
+db.getCollection("massive-data").dropIndex(
+    { email: 1 },
+)
+```
+
+```
+db.getCollection("massive-data").createIndex(
+    { about: "text" })
+```
+
+```
+db.getCollection("massive-data").find({ $text: { $search: "dolar" } })
+```

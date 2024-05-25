@@ -5,7 +5,7 @@
 # 5-1-A Install MongoDB compass & No SQL Booster (windows)
 
 - MongoDB Community Server Download:
-  https://www.mongodb.com/try/download/community
+  [https://www.mongodb.com/try/download/community]
 
 * Commands for MongoDB compass:
   - show dbs

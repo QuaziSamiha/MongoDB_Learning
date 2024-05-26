@@ -4,18 +4,44 @@
 
 # 5-1-A Install MongoDB compass & No SQL Booster (windows)
 
-- MongoDB Community Server Download:
-  [https://www.mongodb.com/try/download/community]
+- MongoDB Community Server Download: https://www.mongodb.com/try/download/community
+
+- MongoDB Shell Download: https://www.mongodb.com/try/download/shell
 
 * Commands for MongoDB compass:
   - show dbs
-  - use practice
+  - use practice (To switch database)
+
+**Steps for setting mongosh path:**
+
+1. Path copied: C:\Program Files\MongoDB\Server\7.0\bin
+2. Edit environmental variable → users variable for hp
+3. Commands for cmd:
+   mongod –version
+   mongosh
 
 # Queries:
+
+- To show all database
 
 ```
 show dbs
 ```
+
+- To switch database
+
+```
+use databaseName
+```
+
+- GUI :
+  Studio 3T
+- No sql booster — GUI for MongoDB – free for one month
+- NoSQL Booster for MongoDB GUI: https://nosqlbooster.com/
+
+# PH DATA :
+
+- (https://github.com/Apollo-Level2-Web-Dev/mongodb-practice)
 
 ```
 db.createCollection(‘test’)
@@ -88,7 +114,7 @@ db.firstTest.find({company: 'Demimbu'})
 db.firstTest.find({gender: 'Female'})
 ```
 
-# Field filtering:
+**Field filtering:**
 
 ```
 db.test.find()
@@ -122,7 +148,7 @@ db.firstTest.find({gender: 'Male'}).project({name: 1, phone: 1, email: 1, gender
 
 # 5-3 $eq, $neq, $gt, $gte, $lt, $lte,
 
-# MongoDB Operator
+**MongoDB Operator:** (https://www.mongodb.com/docs/manual/reference/operator/)
 
 - Query and Projection Operators
 - Comparison Query Operators

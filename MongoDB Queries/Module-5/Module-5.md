@@ -762,5 +762,3 @@ db.createCollection("secondTest")
 ```
 db.secondTest.insertOne({test: "I am testing"})
 ```
-
-PH Task

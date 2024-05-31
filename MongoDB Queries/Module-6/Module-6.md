@@ -1,7 +1,7 @@
 # 14.05.24 and 24.05.24
 
 - aggregation operations in mongodb — google it
-  [https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/]
+  (https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/)
 
 # 6-0 Intro The Powerful Aggregation Framework
 

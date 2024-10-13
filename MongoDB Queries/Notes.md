@@ -86,3 +86,31 @@ Here are some basic commands you can run in the MongoDB shell:
   ```shell
   mongosh
   ```
+
+# Quiz:
+
+1. When does post middleware in Mongoose get executed?
+2. Which operator is used for equality in MongoDB queries?
+3. Which JavaScript runtime environment is Node.js built on top of?
+4. In Mongoose, what are static methods used for?
+5. What is the actual purpose of middleware in Express.js?
+6. Which method is used in Express.js to define error-handling middleware?
+7. When using $and and $or operators, what do they allow you to do, respectively?
+8. Which middleware in Express.js is used to parse incoming json data requests?
+9. What is the purpose of the `$match` aggregation stage in MongoDB Aggregation?
+10. What is the primary purpose of using Mongoose virtuals in a schema?
+11. What does the $exists operator in MongoDB check for?
+12. Which function is used in Node.js to read files asynchronously?
+13. Which of the following is a feature of Zod, a schema validation library?
+14. Which aggregation stage is used to perform a left outer join between two collections in MongoDB?
+15. What does the `$project` aggregation stage do in MongoDB?
+16. In MongoDB Aggregation, which stage is used to group documents by a specified key and perform aggregation operations on the grouped data?
+17. What does the $in operator in MongoDB allow you to do?
+18. In MongoDB Aggregation, what is the purpose of the `$unwind` aggregation stage?
+19. Which Mongoose static method is used to save data to a MongoDB collection?
+20. Which command is used to automatically format files using Prettier?
+21. What is Mongoose in the context of Node.js?
+22. In Mongoose, how can you perform custom validation for a specific field?
+23. How does Mongoose query middleware enhance the functionality of Mongoose queries?
+24. Which MongoDB method is used to update multiple documents at once by adding elements to an array?
+25. Which Mongoose method is used to define a schema?

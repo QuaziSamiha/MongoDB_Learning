@@ -1,80 +1,66 @@
-# Module 5 (10 May, 2024)
+**10 May, 2024** **25 May, 2024** **13 Oct, 24**
 
-- 25 May, 2024
+# Module 5
 
 # 5-1-A Install MongoDB compass & No SQL Booster (windows)
 
-- MongoDB Community Server Download: https://www.mongodb.com/try/download/community
+- **MongoDB Community Server Download**: (https://www.mongodb.com/try/download/community)
 
-- MongoDB Shell Download: https://www.mongodb.com/try/download/shell
+- **MongoDB Shell Download**: (https://www.mongodb.com/try/download/shell)
+- **Steps for setting mongosh path:**:
+  1. Path copied: C:\Program Files\MongoDB\Server\7.0\bin
+  2. Setting mongosh path
+  3. Edit environmental variable → users variable for hp
+  4. **Commands for cmd**:
+     mongod –version
+     mongosh
 
-* Commands for MongoDB compass:
+* **Commands for MongoDB Compass**:
   - show dbs
   - use practice (To switch database)
 
-**Steps for setting mongosh path:**
-
-1. Path copied: C:\Program Files\MongoDB\Server\7.0\bin
-2. Edit environmental variable → users variable for hp
-3. Commands for cmd:
-   mongod –version
-   mongosh
-
 # Queries:
 
-- To show all database
+- **To show all database**:
 
 ```
 show dbs
 ```
 
-- To switch database
+- **To switch database**
 
 ```
 use databaseName
 ```
 
-- GUI :
-  Studio 3T
-- No sql booster — GUI for MongoDB – free for one month
-- NoSQL Booster for MongoDB GUI: https://nosqlbooster.com/
+- **MongoDB GUI** :
 
-# PH DATA :
+  1. **Studio 3T**
 
-- (https://github.com/Apollo-Level2-Web-Dev/mongodb-practice)
+  2. **NoSQLBooster** — GUI for MongoDB – free for one month
+
+- **NoSQLBooster for MongoDB GUI**: (https://nosqlbooster.com/)
+
+- **PH Data** : (https://github.com/Apollo-Level2-Web-Dev/mongodb-practice)
+
+# Queries:
 
 ```
 db.createCollection(‘test’)
 ```
 
 ```
-db.test.getCollection('test').insertOne({ name: 'pumpa', age: 2 })
-```
-
-```
 db.test.getCollection('test').find()
 ```
 
-- MongoDB Shell Download: https://www.mongodb.com/try/download/shell
-- steps:
-
-1. Path copied: C:\Program Files\MongoDB\Server\7.0\bin
-2. Setting mongosh path
-3. Edit environmental variable → users variable for hp
-4. Commands for cmd:
-   mongod –version
-   mongosh
-
-GUI :
-Studio 3T
-No SQL Booster — GUI for MongoDB – free for one month --> https://nosqlbooster.com/
-
 # 5-2 Insert,InsertOne, Find, FindOne, Field Filtering, Project
 
-- practice data:
-  https://github.com/Apollo-Level2-Web-Dev/mongodb-practice
+- **practice data**:
+  (https://github.com/Apollo-Level2-Web-Dev/mongodb-practice)
 
 # Queries In NoSQLBooster:
+
+- **Alt+shift+f** —> to format
 
 ```
 db.test.insertOne({ name: 'pumpa', age: 2 })
@@ -84,14 +70,18 @@ db.test.insertOne({ name: 'pumpa', age: 2 })
 db.test.insertOne({name: 'ATI'})
 ```
 
-- Alt+shift+f —> to format
+```
+db.test.insertMany([
+    { name: 'vondul', age: 11 },
+    { name: 'akku', age: 3 }
+])
+```
 
 ```
-db.test.insertMany([{ name: 'vondul', age: 11 }, { name: 'akku', age: 3 }])
-```
-
-```
-db.test.insertMany([{ name: 'Complete Web Development' }, { name: 'Next Level Web Development' }])
+db.test.insertMany([
+    { name: 'Complete Web Development' },
+    { name: 'Next Level Web Development' }
+])
 ```
 
 ```
@@ -114,86 +104,153 @@ db.firstTest.find({company: 'Demimbu'})
 db.firstTest.find({gender: 'Female'})
 ```
 
-**Field filtering:**
+- **Field filtering:**
 
 ```
 db.test.find()
 ```
 
 ```
-db.firstTest.find({gender: 'Male'}, {gender: 1})
+db.firstTest.find(
+    { gender: 'Male' },
+    { gender: 1 }
+)
 ```
 
 ```
-db.firstTest.find({ gender: 'Female' }, { gender: 1, age: 1 })
+db.firstTest.find(
+    { gender: 'Female' },
+    { gender: 1, age: 1 }
+)
 ```
 
 ```
-db.firstTest.find({gender: 'Male'}, {name: 1, gender: 1})
+db.firstTest.find(
+    { gender: 'Male' },
+    { name: 1, gender: 1 }
+)
 ```
 
 ```
-db.firstTest.find({gender: 'Male'}, {name: 1, phone: 1, email: 1, gender: 1})
+db.firstTest.find(
+    { gender: 'Male' },
+    { name: 1, phone: 1, email: 1, gender: 1 }
+)
 ```
 
 ```
-db.firstTest.findOne({gender: 'Male'}, {name: 1, phone: 1, email: 1, gender: 1})
+db.firstTest.findOne(
+    { gender: 'Male' },
+    { name: 1, phone: 1, email: 1, gender: 1 }
+)
 ```
 
-- project() only works with find(), it doesn't work with findOne()
+- **project() only works with find(), it doesn't work with findOne()**
 
 ```
-db.firstTest.find({gender: 'Male'}).project({name: 1, phone: 1, email: 1, gender: 1})
+db.firstTest
+    .find({ gender: 'Male' })
+    .project({ name: 1, phone: 1, email: 1, gender: 1 })
 ```
 
 # 5-3 $eq, $neq, $gt, $gte, $lt, $lte,
 
-**MongoDB Operator:** (https://www.mongodb.com/docs/manual/reference/operator/)
+- **MongoDB Operator:** (https://www.mongodb.com/docs/manual/reference/operator/)
 
 - Query and Projection Operators
 - Comparison Query Operators
 
-* $eq
+- **$eq**:
 
 ```
-db.firstTest.find({ gender: { $eq: "Male" } })
+db.firstTest
+    .find({
+        gender:
+            { $eq: "Male" }
+    })
     .projection({ name: 1, gender: 1, age: 1 })
 ```
 
 ```
-db.firstTest.find({gender: {$eq: 'Male'}})
+db.firstTest.find({
+    gender: { $eq: 'Male' }
+})
 ```
 
 ```
-db.firstTest.find({age: {$eq: 12}})
+db.firstTest.find({
+    age: {$eq: 12}
+})
 ```
 
 ```
-db.firstTest.find({ age: { $eq: 26 } }).project({ age: 1, name: 1 })
+db.firstTest
+    .find(
+        {
+            age:
+                { $eq: 26 }
+        }
+    )
+    .project({ age: 1, name: 1 })
 ```
 
 ```
-db.firstTest.find({age: {$ne: 12}})
+db.firstTest.find(
+    {
+        age:
+            { $ne: 12 }
+    }
+)
 ```
 
 ```
-db.firstTest.find({age: {$gt: 18}})
+db.firstTest.find(
+    {
+        age:
+            { $gt: 18 }
+    }
+)
 ```
 
 ```
-db.firstTest.find({age: {$gte: 18}})
+db.firstTest
+    .find(
+        {
+            age:
+                { $gte: 18 }
+        }
+    )
+    .projection({ age: 1 })
 ```
 
 ```
-db.firstTest.find({age: {$gte: 18}}).sort({age: 1})
+db.firstTest.find(
+    {
+        age:
+            { $gte: 18 }
+    }
+).sort({ age: 1 })
 ```
 
 ```
-db.firstTest.find({ age: { $gte: 18 } }).project({ age: 1 }).sort({ age: 1 })
+db.firstTest
+    .find(
+        {
+            age:
+                { $gte: 18 }
+        }
+    )
+    .project({ age: 1 })
+    .sort({ age: 1 })
 ```
 
 ```
-db.firstTest.find({age: {$lt: 18}}).sort({age: 1})
+db.firstTest.find(
+    {
+        age:
+            { $lt: 18 }
+    }
+).sort({ age: 1 })
 ```
 
 ```
@@ -205,7 +262,13 @@ db.firstTest.find().project({age: 1}).sort({age: 1})
 - age greater than 18 and less than 30
 
 ```
-db.firstTest.find({age: {$gt: 18, $lt: 30}}, {age: 1})
+db.firstTest.find(
+    {
+        age:
+            { $gt: 18, $lt: 30 }
+    },
+    { age: 1 }
+)
 ```
 
 ```
@@ -223,6 +286,16 @@ db.firstTest.find(
     },
     { age: 1, gender: 1 }
 ).sort({ age: 1 })
+```
+
+```
+db.firstTest.find(
+    {
+        age:
+            { $gt: 18, $lt: 30 }
+    },
+    { age: 1 }
+).sort({ age: -1 })
 ```
 
 ```
@@ -269,6 +342,8 @@ db.firstTest.find(
 
 # 5-5 $And, $Or, Implicit Vs Explicit (Logical Query Operator)
 
+- **Explicit AND**
+
 ```
 db.firstTest.find(
     {
@@ -306,7 +381,7 @@ db.firstTest.find(
 ).project({ age: 1, gender: 1 }).sort({ age: 1 })
 ```
 
-- Explicit OR
+- **Explicit OR**
 
 ```
 db.firstTest.find(
@@ -332,7 +407,7 @@ db.firstTest.find(
 ).project({ skills: 1 })
 ```
 
-- implicit OR
+- **implicit OR**
 
 ```
 db.firstTest.find(
@@ -365,6 +440,14 @@ db.firstTest.find(
 ```
 db.firstTest.find(
     {
+        age: { $type: "number" }
+    }
+)
+```
+
+```
+db.firstTest.find(
+    {
         age: { $type: "string" }
     }
 ).project({ name: 1, age: 1 })
@@ -383,18 +466,10 @@ db.firstTest.find(
     {
         friends: { $type: "array" }
     }
-)
-```
-
-```
-db.firstTest.find(
-    {
-        friends: { $type: "array" }
-    }
 ).project({ friends: 1 })
 ```
 
-- Array Query Operators
+- **Array Query Operators**
 
 ```
 db.firstTest.find({ friends: { $size: 4 } })
@@ -408,7 +483,7 @@ db.firstTest.find(
 ).project({ friends: 1 })
 ```
 
-- Empty Array
+- **Empty Array**
 
 ```
 db.firstTest.find(
@@ -435,7 +510,7 @@ db.firstTest.find(
 ).project({ interests: 1 })
 ```
 
-- Position within array
+- **Position within array**
 
 ```
 db.firstTest.find(
@@ -455,7 +530,7 @@ db.firstTest.find(
 ).project({ interests: 1 })
 ```
 
-- Only Matching
+- **Only Matching**
 
 ```
 db.firstTest.find(
@@ -555,7 +630,7 @@ db.firstTest.updateOne(
 )
 ```
 
-- Array Update Operators
+- **Array Update Operators**
 
 ```
 db.firstTest.updateOne(
@@ -614,11 +689,9 @@ db.firstTest.updateOne(
 )
 ```
 
-- Operators
+- **Operators**
 
-* $pop
-
-- remove last element from array
+* **$pop** : remove last element from array
 
 ```
 db.firstTest.updateOne(
@@ -682,7 +755,7 @@ db.firstTest.updateOne(
 )
 ```
 
-- multiple value update
+- **multiple value update**
 
 ```
 db.firstTest.updateOne(
@@ -696,12 +769,10 @@ db.firstTest.updateOne(
 )
 ```
 
-- Mongodb update a value in an array of object of array
-- Field Names with Periods and Dollar Signs
+- **Mongodb update a value in an array of object of array**
+- **Field Names with Periods and Dollar Signs**
 
-- $(update)
-
-- updating object property from an array of object:
+- **$(update)** : updating object property from an array of object:
 
 ```
 db.firstTest.updateOne(
@@ -717,9 +788,9 @@ db.firstTest.updateOne(
 )
 ```
 
-- How to increment in mongodb – google it
+- **How to increment in mongodb** – google it
 
-- $inc
+- **$inc**
 
 ```
 db.firstTest.updateOne(
